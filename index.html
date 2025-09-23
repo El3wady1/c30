@@ -27,6 +27,8 @@
             --gradient-1: linear-gradient(135deg, #9b5de5 0%, #00f5d4 100%);
             --gradient-2: linear-gradient(135deg, #f15bb5 0%, #fee440 100%);
             --gradient-3: linear-gradient(135deg, #00bbf9 0%, #00f5d4 100%);
+            --gradient-4: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --gradient-5: linear-gradient(135deg, #f72585 0%, #7209b7 100%);
         }
         
         html {
@@ -479,6 +481,129 @@
             font-size: 1rem;
         }
         
+        /* أنماط قسم العروض */
+        .offers {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            position: relative;
+        }
+        
+        .offers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .offer-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(155, 93, 229, 0.1);
+            position: relative;
+            box-shadow: 0 10px 20px rgba(3, 7, 30, 0.5);
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(155, 93, 229, 0.3);
+            border-color: rgba(155, 93, 229, 0.3);
+        }
+        
+        .offer-header {
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-basic .offer-header {
+            background: var(--gradient-4);
+        }
+        
+        .offer-pro .offer-header {
+            background: var(--gradient-1);
+        }
+        
+        .offer-premium .offer-header {
+            background: var(--gradient-5);
+        }
+        
+        .offer-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .offer-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .offer-period {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        
+        .offer-features {
+            padding: 25px 20px;
+        }
+        
+        .offer-features ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .offer-features ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(155, 93, 229, 0.1);
+            display: flex;
+            align-items: center;
+            color: var(--light);
+        }
+        
+        .offer-features ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .offer-features ul li i {
+            margin-left: 10px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .offer-features .btn {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            left: -30px;
+            background: var(--gradient-2);
+            color: var(--dark);
+            padding: 5px 30px;
+            transform: rotate(-45deg);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
         /* أنماط قسم الاتصال */
         .contact {
             padding: 80px 0;
@@ -864,12 +989,12 @@
                 font-size: 1rem;
             }
             
-            .services-grid {
+            .services-grid, .offers-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             
-            .service-card {
+            .service-card, .offer-card {
                 padding: 25px 15px;
             }
             
@@ -928,7 +1053,7 @@
                 font-size: 1.6rem;
             }
             
-            .services-grid {
+            .services-grid, .offers-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -946,6 +1071,10 @@
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (min-width: 993px) {
@@ -954,6 +1083,10 @@
             }
             
             .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .offers-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -975,6 +1108,7 @@
                     <ul id="navMenu">
                         <li><a href="#home" class="active">الرئيسية</a></li>
                         <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#offers">العروض</a></li>
                         <li><a href="#contact">اتصل بنا</a></li>
                     </ul>
                 </nav>
@@ -1051,6 +1185,73 @@
         </div>
     </section>
 
+    <!-- قسم العروض -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <div class="section-title">
+                <h2>عروضنا الحصرية</h2>
+                <p>اختر الباقة المناسبة لاحتياجاتك واستفد من عروضنا المميزة</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card offer-basic fade-in">
+                    <div class="offer-header">
+                        <h3>الباقة الأساسية</h3>
+                        <div class="offer-price">$499</div>
+                        <div class="offer-period">شهرياً</div>
+                    </div>
+                    <div class="offer-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> تصميم موقع ويب متجاوب</li>
+                            <li><i class="fas fa-check"></i> 5 صفحات رئيسية</li>
+                            <li><i class="fas fa-check"></i> استضافة مجانية لمدة 6 أشهر</li>
+                            <li><i class="fas fa-check"></i> شهادة SSL مجانية</li>
+                            <li><i class="fas fa-check"></i> دعم فني لمدة 3 أشهر</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-filled">اختر الباقة</a>
+                    </div>
+                </div>
+                <div class="offer-card offer-pro fade-in">
+                    <div class="offer-badge">الأكثر شيوعاً</div>
+                    <div class="offer-header">
+                        <h3>الباقة الاحترافية</h3>
+                        <div class="offer-price">$999</div>
+                        <div class="offer-period">شهرياً</div>
+                    </div>
+                    <div class="offer-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> كل ما في الباقة الأساسية</li>
+                            <li><i class="fas fa-check"></i> تصميم متجر إلكتروني متكامل</li>
+                            <li><i class="fas fa-check"></i> نظام إدارة محتوى مخصص</li>
+                            <li><i class="fas fa-check"></i> استضافة مجانية لمدة سنة</li>
+                            <li><i class="fas fa-check"></i> دعم فني لمدة سنة كاملة</li>
+                            <li><i class="fas fa-check"></i> تحسين محركات البحث (SEO)</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-filled">اختر الباقة</a>
+                    </div>
+                </div>
+                <div class="offer-card offer-premium fade-in">
+                    <div class="offer-header">
+                        <h3>الباقة المميزة</h3>
+                        <div class="offer-price">$1999</div>
+                        <div class="offer-period">شهرياً</div>
+                    </div>
+                    <div class="offer-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> كل ما في الباقة الاحترافية</li>
+                            <li><i class="fas fa-check"></i> تطبيق جوال (iOS و Android)</li>
+                            <li><i class="fas fa-check"></i> نظام إدارة علاقات عملاء (CRM)</li>
+                            <li><i class="fas fa-check"></i> تحليلات متقدمة وتقارير مخصصة</li>
+                            <li><i class="fas fa-check"></i> استضافة سحابية متقدمة</li>
+                            <li><i class="fas fa-check"></i> دعم فني على مدار الساعة</li>
+                            <li><i class="fas fa-check"></i> تدريب فريقك على النظام</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-filled">اختر الباقة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- قسم الاتصال -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1122,6 +1323,7 @@
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
                         <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#offers">العروض</a></li>
                         <li><a href="#contact">اتصل بنا</a></li>
                     </ul>
                 </div>
