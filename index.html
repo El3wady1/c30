@@ -16,21 +16,17 @@
         }
         
         :root {
-            --primary: #f8f9fa;
-            --secondary: #6a11cb;
-            --accent: #ff6b6b;
-            --light: #ffffff;
-            --dark: #495057;
-            --gray: #6c757d;
-            --success: #20c997;
-            --card-bg: #ffffff;
-            --gradient-1: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            --gradient-2: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
-            --gradient-3: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
-            --gradient-4: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            --gradient-5: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --primary: #0a0e2a;
+            --secondary: #00f5d4;
+            --accent: #9b5de5;
+            --light: #f8f9fa;
+            --dark: #03071e;
+            --gray: #adb5bd;
+            --success: #00f5d4;
+            --card-bg: #1a1f4b;
+            --gradient-1: linear-gradient(135deg, #9b5de5 0%, #00f5d4 100%);
+            --gradient-2: linear-gradient(135deg, #f15bb5 0%, #fee440 100%);
+            --gradient-3: linear-gradient(135deg, #00bbf9 0%, #00f5d4 100%);
         }
         
         html {
@@ -39,7 +35,7 @@
         
         body {
             background-color: var(--primary);
-            color: var(--dark);
+            color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -53,8 +49,8 @@
         
         /* أنماط الشريط العلوي */
         header {
-            background-color: rgba(248, 249, 250, 0.95);
-            color: var(--dark);
+            background-color: rgba(10, 14, 42, 0.95);
+            color: white;
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -62,13 +58,13 @@
             z-index: 1000;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            border-bottom: 1px solid rgba(106, 17, 203, 0.1);
+            box-shadow: 0 5px 20px rgba(3, 7, 30, 0.7);
+            border-bottom: 1px solid rgba(0, 245, 212, 0.1);
         }
         
         header.scrolled {
             padding: 12px 0;
-            background-color: rgba(248, 249, 250, 0.98);
+            background-color: rgba(10, 14, 42, 0.98);
         }
         
         .header-content {
@@ -81,6 +77,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
+            color: var(--secondary);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -95,10 +92,10 @@
         
         @keyframes logoGlow {
             0% {
-                filter: drop-shadow(0 0 5px rgba(106, 17, 203, 0.3));
+                filter: drop-shadow(0 0 5px rgba(155, 93, 229, 0.5));
             }
             100% {
-                filter: drop-shadow(0 0 15px rgba(37, 117, 252, 0.5));
+                filter: drop-shadow(0 0 15px rgba(0, 245, 212, 0.7));
             }
         }
         
@@ -120,7 +117,7 @@
         .logo i {
             margin-left: 10px;
             font-size: 1.6rem;
-            color: var(--secondary);
+            color: var(--light);
         }
         
         nav ul {
@@ -134,7 +131,7 @@
         }
         
         nav ul li a {
-            color: var(--dark);
+            color: var(--light);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
@@ -170,7 +167,7 @@
             display: none;
             font-size: 1.6rem;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--light);
             transition: all 0.3s;
             z-index: 1001;
         }
@@ -181,8 +178,8 @@
         
         /* أنماط قسم البطل */
         .hero {
-            background: var(--gradient-5);
-            color: var(--dark);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
             padding: 160px 0 100px;
             text-align: center;
             position: relative;
@@ -200,9 +197,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(106, 17, 203, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(37, 117, 252, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(155, 93, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 245, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(241, 91, 181, 0.1) 0%, transparent 50%);
             animation: float 6s ease-in-out infinite;
         }
         
@@ -218,7 +215,7 @@
         
         .floating-element {
             position: absolute;
-            background: rgba(106, 17, 203, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             animation: floatRandom 15s infinite linear;
         }
@@ -312,7 +309,6 @@
             border-image: var(--gradient-1);
             border-image-slice: 1;
             margin: 5px;
-            box-shadow: var(--shadow);
         }
         
         .btn::before {
@@ -333,8 +329,8 @@
         }
         
         .btn:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(155, 93, 229, 0.5);
+            transform: translateY(-3px);
             -webkit-text-fill-color: white;
         }
         
@@ -372,7 +368,7 @@
         
         .section-title h2 {
             font-size: 2.2rem;
-            color: var(--dark);
+            color: var(--light);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -412,14 +408,13 @@
         .service-card {
             background-color: var(--card-bg);
             padding: 30px 20px;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.5s ease;
-            border: 1px solid rgba(106, 17, 203, 0.1);
+            border: 1px solid rgba(155, 93, 229, 0.1);
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: var(--shadow);
         }
         
         .service-card::before {
@@ -436,17 +431,18 @@
         }
         
         .service-card:hover::before {
-            opacity: 0.05;
+            opacity: 0.1;
         }
         
         .service-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            border-color: rgba(106, 17, 203, 0.3);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(155, 93, 229, 0.3);
+            box-shadow: 0 10px 20px rgba(3, 7, 30, 0.7);
         }
         
         .service-icon {
             font-size: 2.8rem;
+            color: var(--secondary);
             margin-bottom: 20px;
             display: inline-block;
             transition: all 0.5s;
@@ -457,23 +453,23 @@
         }
         
         .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(5deg);
+            transform: scale(1.15) rotate(5deg);
             animation: iconPulse 1s infinite alternate;
         }
         
         @keyframes iconPulse {
             0% {
-                filter: drop-shadow(0 0 5px rgba(106, 17, 203, 0.3));
+                filter: drop-shadow(0 0 5px rgba(155, 93, 229, 0.5));
             }
             100% {
-                filter: drop-shadow(0 0 15px rgba(37, 117, 252, 0.5));
+                filter: drop-shadow(0 0 12px rgba(0, 245, 212, 0.7));
             }
         }
         
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 600;
         }
         
@@ -486,7 +482,7 @@
         /* أنماط قسم الاتصال */
         .contact {
             padding: 80px 0;
-            background: var(--gradient-4);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
             position: relative;
         }
         
@@ -513,7 +509,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -529,32 +525,31 @@
             align-items: center;
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            border: 1px solid rgba(106, 17, 203, 0.1);
+            background: rgba(155, 93, 229, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(155, 93, 229, 0.1);
             transition: all 0.3s;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
         }
         
         .contact-item:hover {
             transform: translateX(5px);
-            border-color: rgba(106, 17, 203, 0.3);
-            box-shadow: var(--shadow-hover);
+            border-color: rgba(155, 93, 229, 0.3);
+            box-shadow: 0 5px 12px rgba(3, 7, 30, 0.5);
         }
         
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: rgba(106, 17, 203, 0.1);
+            background: rgba(155, 93, 229, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 15px;
+            color: var(--secondary);
             font-size: 1.3rem;
             flex-shrink: 0;
-            border: 1px solid rgba(106, 17, 203, 0.2);
+            border: 1px solid rgba(155, 93, 229, 0.2);
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -562,7 +557,7 @@
         
         .contact-text h4 {
             margin-bottom: 5px;
-            color: var(--dark);
+            color: var(--light);
             font-size: 1.1rem;
         }
         
@@ -578,22 +573,20 @@
         }
         
         .contact-text a:hover {
-            color: var(--accent);
+            color: var(--light);
         }
         
         .contact-form {
             padding: 25px 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            border: 1px solid rgba(106, 17, 203, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid rgba(155, 93, 229, 0.1);
         }
         
         .contact-form h3 {
             font-size: 1.6rem;
             margin-bottom: 20px;
-            color: var(--dark);
+            color: var(--light);
             font-weight: 600;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -605,20 +598,20 @@
             width: 100%;
             padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid rgba(106, 17, 203, 0.2);
-            border-radius: 8px;
+            border: 1px solid rgba(155, 93, 229, 0.2);
+            border-radius: 5px;
             font-size: 1rem;
             transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.7);
-            color: var(--dark);
+            background: rgba(155, 93, 229, 0.03);
+            color: var(--light);
         }
         
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+            background: rgba(155, 93, 229, 0.05);
+            box-shadow: 0 0 0 2px rgba(155, 93, 229, 0.1);
         }
         
         .contact-form textarea {
@@ -633,11 +626,11 @@
         
         /* أنماط التذييل */
         footer {
-            background: var(--gradient-3);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
             color: white;
             padding: 60px 0 30px;
             position: relative;
-            border-top: 1px solid rgba(106, 17, 203, 0.1);
+            border-top: 1px solid rgba(155, 93, 229, 0.1);
         }
         
         .footer-content {
@@ -653,7 +646,10 @@
             position: relative;
             padding-bottom: 10px;
             font-weight: 700;
-            color: white;
+            color: var(--light);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .footer-column h3::after {
@@ -661,13 +657,13 @@
             position: absolute;
             width: 40px;
             height: 2px;
-            background: white;
+            background: var(--gradient-1);
             bottom: 0;
             right: 0;
         }
         
         .footer-column p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray);
             line-height: 1.7;
             margin-bottom: 20px;
             font-size: 1rem;
@@ -682,7 +678,7 @@
         }
         
         .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray);
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
@@ -690,7 +686,7 @@
         }
         
         .footer-column ul li a:hover {
-            color: white;
+            color: var(--secondary);
             transform: translateX(3px);
         }
         
@@ -704,33 +700,33 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(155, 93, 229, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--light);
             text-decoration: none;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(155, 93, 229, 0.2);
         }
         
         .social-links a:hover {
-            background: white;
-            color: var(--secondary);
+            background: var(--gradient-1);
+            color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 12px rgba(155, 93, 229, 0.3);
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(155, 93, 229, 0.1);
+            color: var(--gray);
             font-size: 0.9rem;
         }
         
-        /* أنيميشات جديدة */
+        /* أنيميشات */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -747,7 +743,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
             100% {
                 transform: translateY(0);
@@ -763,61 +759,6 @@
             }
         }
         
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
         /* تأثيرات التمرير */
         .fade-in {
             opacity: 0;
@@ -828,39 +769,6 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s ease;
-        }
-        
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
-        }
-        
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .bounce-in {
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.6s ease;
-        }
-        
-        .bounce-in.visible {
-            opacity: 1;
-            transform: scale(1);
         }
         
         /* أنماط الاستجابة للهواتف */
@@ -885,12 +793,12 @@
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background: rgba(248, 249, 250, 0.98);
+                background: rgba(10, 14, 42, 0.98);
                 backdrop-filter: blur(10px);
                 padding: 80px 30px 30px;
                 transition: all 0.5s ease;
                 z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             }
             
             nav ul.show {
@@ -920,7 +828,7 @@
                 top: 20px;
                 left: 20px;
                 font-size: 1.8rem;
-                color: var(--dark);
+                color: var(--light);
                 cursor: pointer;
                 z-index: 1001;
             }
@@ -1002,7 +910,7 @@
             }
             
             .floating-element {
-                display: none;
+                display: none; /* إخفاء العناصر العائمة على الهواتف لتحسين الأداء */
             }
         }
         
@@ -1104,21 +1012,21 @@
                     <h3>تطوير الويب المتقدم</h3>
                     <p>نصمم ونطور مواقع ويب تفاعلية وسريعة الاستجابة باستخدام أحدث التقنيات مثل React وVue.js لتجربة مستخدم استثنائية.</p>
                 </div>
-                <div class="service-card slide-in-left">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>تطبيقات الجوال</h3>
                     <p>نبني تطبيقات جوال مبتكرة لأنظمة iOS وAndroid باستخدام Flutter وReact Native، مع ضمان أداء فائق وتجربة مستخدم سلسة.</p>
                 </div>
-                <div class="service-card slide-in-right">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3>متاجر إلكترونية ذكية</h3>
                     <p>ننشئ منصات تجارة إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة مخزون ذكية لتعزيز مبيعاتك عبر الإنترنت.</p>
                 </div>
-                <div class="service-card bounce-in">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -1132,7 +1040,7 @@
                     <h3>التحول إلى السحابة</h3>
                     <p>نقدم حلول سحابية متكاملة لتخزين آمن وقابلية توسع غير محدودة، مع إدارة احترافية للبنية التحتية.</p>
                 </div>
-                <div class="service-card slide-in-left">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-headset"></i>
                     </div>
@@ -1151,7 +1059,7 @@
                 <p>نرحب باستفساراتك ونسعد بتقديم الاستشارة المجانية لمشروعك</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info slide-in-left">
+                <div class="contact-info">
                     <h3>معلومات التواصل</h3>
                     <div class="contact-details">
                         <div class="contact-item">
@@ -1181,7 +1089,7 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="contact-form slide-in-right">
+                <div class="contact-form fade-in">
                     <h3>أرسل رسالة</h3>
                     <form id="contactForm">
                         <input type="text" placeholder="الاسم الكامل" required>
@@ -1199,7 +1107,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column fade-in">
+                <div class="footer-column">
                     <h3>E-Tech</h3>
                     <p>شركة رائدة في مجال البرمجة وتطوير البرمجيات، نقدم حلولاً تقنية مبتكرة تلبي احتياجات العصر الرقمي.</p>
                     <div class="social-links">
@@ -1209,7 +1117,7 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-column slide-in-left">
+                <div class="footer-column">
                     <h3>روابط سريعة</h3>
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
@@ -1217,7 +1125,7 @@
                         <li><a href="#contact">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="footer-column slide-in-right">
+                <div class="footer-column">
                     <h3>الخدمات</h3>
                     <ul>
                         <li><a href="#services">تطوير الويب</a></li>
@@ -1227,7 +1135,7 @@
                         <li><a href="#services">الحلول السحابية</a></li>
                     </ul>
                 </div>
-                <div class="footer-column bounce-in">
+                <div class="footer-column">
                     <h3>معلومات التواصل</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> niroelawady@gmail.com</li>
@@ -1247,12 +1155,12 @@
             // إنشاء العناصر العائمة في قسم البطل (لشاشات الكمبيوتر فقط)
             if (window.innerWidth > 768) {
                 const floatingElements = document.getElementById('floatingElements');
-                for (let i = 0; i < 15; i++) {
+                for (let i = 0; i < 12; i++) {
                     const element = document.createElement('div');
                     element.classList.add('floating-element');
                     
                     // إعدادات عشوائية للحجم والموضع
-                    const size = Math.random() * 60 + 20;
+                    const size = Math.random() * 50 + 15;
                     const top = Math.random() * 100;
                     const right = Math.random() * 100;
                     const delay = Math.random() * 15;
@@ -1264,16 +1172,6 @@
                     element.style.right = `${right}%`;
                     element.style.animationDelay = `${delay}s`;
                     element.style.animationDuration = `${duration}s`;
-                    
-                    // ألوان عشوائية للعناصر العائمة
-                    const colors = [
-                        'rgba(106, 17, 203, 0.1)',
-                        'rgba(37, 117, 252, 0.1)',
-                        'rgba(255, 107, 107, 0.1)',
-                        'rgba(32, 201, 151, 0.1)',
-                        'rgba(255, 217, 61, 0.1)'
-                    ];
-                    element.style.background = colors[Math.floor(Math.random() * colors.length)];
                     
                     floatingElements.appendChild(element);
                 }
@@ -1298,13 +1196,13 @@
             mobileMenu.addEventListener('click', function() {
                 navMenu.classList.add('show');
                 closeMenu.style.display = 'block';
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // منع التمرير عند فتح القائمة
             });
             
             closeMenu.addEventListener('click', function() {
                 navMenu.classList.remove('show');
                 closeMenu.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'auto'; // إعادة التمرير عند إغلاق القائمة
             });
             
             // إخفاء القائمة عند النقر على رابط
@@ -1336,45 +1234,11 @@
                 });
             });
             
-            // تأثيرات الظهور عند التمرير
+            // تأثير الظهور عند التمرير
             const fadeElements = document.querySelectorAll('.fade-in');
-            const slideLeftElements = document.querySelectorAll('.slide-in-left');
-            const slideRightElements = document.querySelectorAll('.slide-in-right');
-            const bounceElements = document.querySelectorAll('.bounce-in');
             
             const fadeInOnScroll = function() {
-                // تأثير fade-in
                 fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 100;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-                
-                // تأثير slide-in-left
-                slideLeftElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 100;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-                
-                // تأثير slide-in-right
-                slideRightElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 100;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-                
-                // تأثير bounce-in
-                bounceElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const elementVisible = 100;
                     
@@ -1396,17 +1260,9 @@
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // تأثير اهتزاز عند الإرسال
-                contactForm.style.animation = 'pulse 0.5s';
-                setTimeout(() => {
-                    contactForm.style.animation = '';
-                }, 500);
-                
                 // هنا يمكنك إضافة كود إرسال النموذج إلى الخادم
-                setTimeout(() => {
-                    alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
-                    contactForm.reset();
-                }, 600);
+                alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+                contactForm.reset();
             });
             
             // تحديث الرابط النشط في القائمة
@@ -1441,25 +1297,6 @@
                     document.body.style.overflow = 'auto';
                 }
             });
-            
-            // تأثيرات إضافية للعناصر عند التمرير عليها
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.animation = 'pulse 0.5s';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.animation = '';
-                });
-            });
-            
-            // تأثير اهتزاز للشعار عند التحميل
-            setTimeout(() => {
-                document.querySelector('.logo').style.animation = 'bounce 1s';
-                setTimeout(() => {
-                    document.querySelector('.logo').style.animation = 'logoGlow 3s ease-in-out infinite alternate';
-                }, 1000);
-            }, 500);
         });
     </script>
 </body>
