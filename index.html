@@ -1132,15 +1132,218 @@
             0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
             100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
         }
+
+        /* تأثيرات خيالية إضافية */
+        .hologram-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hologram-effect::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                rgba(0, 255, 234, 0.1) 0%, 
+                rgba(255, 0, 204, 0.1) 25%, 
+                rgba(0, 119, 255, 0.1) 50%, 
+                rgba(0, 255, 234, 0.1) 75%, 
+                rgba(255, 0, 204, 0.1) 100%);
+            z-index: -1;
+            animation: hologram 8s linear infinite;
+            filter: blur(5px);
+        }
+
+        @keyframes hologram {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .neon-text {
+            text-shadow: 
+                0 0 5px var(--accent-color),
+                0 0 10px var(--accent-color),
+                0 0 15px var(--accent-color),
+                0 0 20px var(--accent-color);
+            animation: neon-flicker 2s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 5px var(--accent-color),
+                    0 0 10px var(--accent-color),
+                    0 0 15px var(--accent-color),
+                    0 0 20px var(--accent-color);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 234, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 234, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .binary-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .binary-digit {
+            position: absolute;
+            color: rgba(0, 255, 234, 0.7);
+            font-family: monospace;
+            font-size: 18px;
+            animation: binary-fall linear forwards;
+        }
+
+        @keyframes binary-fall {
+            to { transform: translateY(100vh); }
+        }
+
+        .morphing-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .morph-shape {
+            position: absolute;
+            background: rgba(0, 255, 234, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: morph 10s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0% { 
+                border-radius: 50%;
+                transform: scale(1) rotate(0deg);
+            }
+            50% { 
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: scale(1.2) rotate(180deg);
+            }
+            100% { 
+                border-radius: 50%;
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        .parallax-scroll {
+            transform-style: preserve-3d;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .code-terminal {
+            background: rgba(10, 10, 22, 0.8);
+            border: 1px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: monospace;
+            color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca3f; }
+
+        .terminal-content {
+            line-height: 1.5;
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+            animation: typewriter 2s steps(40) forwards;
+            opacity: 0;
+        }
+
+        @keyframes typewriter {
+            from { width: 0; opacity: 1; }
+            to { width: 100%; opacity: 1; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--accent-color);
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
+    <div class="cyber-grid"></div>
+    <div class="binary-rain" id="binaryRain"></div>
+    <div class="morphing-shapes" id="morphingShapes"></div>
     <div class="particles" id="particles"></div>
     <canvas class="matrix-bg" id="matrixCanvas"></canvas>
 
     <header id="header">
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="#" class="logo neon-text">
                 <i class="fas fa-code"></i> E-Tech
             </a>
             <nav>
@@ -1163,8 +1366,22 @@
     <main>
         <section class="hero" id="hero">
             <div class="container hero-content animate-on-load">
-                <h1 class="typing-animation">نقدم حلول برمجية متطورة لنمو <span>أعمالك</span></h1>
+                <h1 class="typing-animation">نقدم حلول برمجية متطورة لنمو <span class="neon-text">أعمالك</span></h1>
                 <p class="fade-in">نحن في E-Tech، نجمع بين الإبداع والتكنولوجيا لإنشاء تجارب رقمية لا تُنسى. من تطبيقات الويب إلى حلول الهاتف المحمول، نصمم المستقبل اليوم.</p>
+                <div class="code-terminal hologram-effect">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">$ npm create digital-solution</div>
+                        <div class="terminal-line">$ git commit -m "بناء المستقبل الرقمي"</div>
+                        <div class="terminal-line">$ deploy --innovation --creativity<span class="cursor"></span></div>
+                    </div>
+                </div>
                 <div class="hero-buttons">
                     <a href="#services" class="btn bounce">اكتشف خدماتنا</a>
                     <a href="#contact" class="btn btn-outline pulse">تحدث معنا</a>
@@ -1175,26 +1392,26 @@
         <section class="services" id="services">
             <div class="container">
                 <div class="section-title animate-element">
-                    <h2>خدماتنا المتكاملة</h2>
+                    <h2 class="neon-text">خدماتنا المتكاملة</h2>
                     <p>نقدم مجموعة واسعة من الخدمات البرمجية لتلبية احتياجات عملك وتحويل أفكارك إلى واقع رقمي ملموس.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card animate-element slide-in-left">
+                    <div class="service-card animate-element slide-in-left hologram-effect">
                         <i class="fas fa-desktop service-icon rotate"></i>
                         <h3>تطوير الويب</h3>
                         <p>بناء مواقع وتطبيقات ويب احترافية ومتجاوبة باستخدام أحدث التقنيات.</p>
                     </div>
-                    <div class="service-card animate-element zoom-in">
+                    <div class="service-card animate-element zoom-in hologram-effect">
                         <i class="fas fa-mobile-alt service-icon floating"></i>
                         <h3>تطبيقات الموبايل</h3>
                         <p>تصميم وتطوير تطبيقات أندرويد و iOS عالية الأداء وسهلة الاستخدام.</p>
                     </div>
-                    <div class="service-card animate-element zoom-in">
+                    <div class="service-card animate-element zoom-in hologram-effect">
                         <i class="fas fa-server service-icon glow"></i>
                         <h3>حلول السحابة</h3>
                         <p>استضافة آمنة وموثوقة، وإدارة الخوادم، وخدمات الحوسبة السحابية.</p>
                     </div>
-                    <div class="service-card animate-element slide-in-right">
+                    <div class="service-card animate-element slide-in-right hologram-effect">
                         <i class="fas fa-chart-line service-icon pulse"></i>
                         <h3>تحليل البيانات</h3>
                         <p>تحويل البيانات الضخمة إلى رؤى قيمة تدعم قرارات عملك الاستراتيجية.</p>
@@ -1206,11 +1423,11 @@
         <section class="offers" id="offers">
             <div class="container">
                 <div class="section-title animate-element">
-                    <h2>باقاتنا البرمجية</h2>
+                    <h2 class="neon-text">باقاتنا البرمجية</h2>
                     <p>اختر الباقة التي تناسب حجم مشروعك وميزانيتك، وابدأ رحلتك نحو النجاح الرقمي.</p>
                 </div>
                 <div class="offers-grid">
-                    <div class="offer-card animate-element floating">
+                    <div class="offer-card animate-element floating hologram-effect">
                         <div class="offer-header shimmer">
                             <h3>الباقة الأساسية</h3>
                             <div class="offer-price">500$</div>
@@ -1226,7 +1443,7 @@
                             <a href="#" class="btn">اشترك الآن</a>
                         </div>
                     </div>
-                    <div class="offer-card animate-element floating" style="animation-delay: 0.2s;">
+                    <div class="offer-card animate-element floating hologram-effect" style="animation-delay: 0.2s;">
                         <div class="offer-header shimmer">
                             <h3>الباقة الاحترافية</h3>
                             <div class="offer-price">1200$</div>
@@ -1242,7 +1459,7 @@
                             <a href="#" class="btn">اشترك الآن</a>
                         </div>
                     </div>
-                    <div class="offer-card animate-element floating" style="animation-delay: 0.4s;">
+                    <div class="offer-card animate-element floating hologram-effect" style="animation-delay: 0.4s;">
                         <div class="offer-header shimmer">
                             <h3>الباقة المتقدمة</h3>
                             <div class="offer-price">2500$+</div>
@@ -1265,28 +1482,28 @@
         <section class="contact" id="contact">
             <div class="container">
                 <div class="section-title animate-element">
-                    <h2>تواصل معنا</h2>
+                    <h2 class="neon-text">تواصل معنا</h2>
                     <p>لدينا فريق من الخبراء جاهز للإجابة على جميع استفساراتك وتقديم الحلول التي تحتاجها.</p>
                 </div>
                 <div class="contact-content">
                     <div class="contact-info animate-element">
                         <h3>معلومات الاتصال</h3>
                         <div class="contact-details">
-                            <div class="contact-item animate-element bounce">
+                            <div class="contact-item animate-element bounce hologram-effect">
                                 <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
                                 <div class="contact-text">
                                     <h4>الموقع</h4>
                                     <p>المدينة المنورة، السعودية</p>
                                 </div>
                             </div>
-                            <div class="contact-item animate-element bounce" style="animation-delay: 0.1s;">
+                            <div class="contact-item animate-element bounce hologram-effect" style="animation-delay: 0.1s;">
                                 <span class="contact-icon"><i class="fas fa-envelope"></i></span>
                                 <div class="contact-text">
                                     <h4>البريد الإلكتروني</h4>
                                     <p><a href="mailto:niroelawady@gmail.com">niroelawady@gmail.com</a></p>
                                 </div>
                             </div>
-                            <div class="contact-item animate-element bounce" style="animation-delay: 0.2s;">
+                            <div class="contact-item animate-element bounce hologram-effect" style="animation-delay: 0.2s;">
                                 <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
                                 <div class="contact-text">
                                     <h4>الهاتف</h4>
@@ -1502,6 +1719,38 @@
             
             setInterval(drawMatrix, 35);
 
+            // Binary rain effect
+            const binaryRain = document.getElementById('binaryRain');
+            function createBinaryRain() {
+                const binaryDigit = document.createElement('div');
+                binaryDigit.className = 'binary-digit';
+                binaryDigit.textContent = Math.random() > 0.5 ? '1' : '0';
+                binaryDigit.style.left = Math.random() * 100 + 'vw';
+                binaryDigit.style.animationDuration = (Math.random() * 5 + 3) + 's';
+                binaryDigit.style.opacity = Math.random() * 0.5 + 0.1;
+                binaryRain.appendChild(binaryDigit);
+                
+                setTimeout(() => {
+                    binaryDigit.remove();
+                }, 8000);
+            }
+            
+            setInterval(createBinaryRain, 100);
+
+            // Morphing shapes effect
+            const morphingShapes = document.getElementById('morphingShapes');
+            for (let i = 0; i < 5; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'morph-shape';
+                shape.style.width = (Math.random() * 300 + 100) + 'px';
+                shape.style.height = (Math.random() * 300 + 100) + 'px';
+                shape.style.top = Math.random() * 100 + 'vh';
+                shape.style.left = Math.random() * 100 + 'vw';
+                shape.style.animationDelay = (Math.random() * 10) + 's';
+                shape.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                morphingShapes.appendChild(shape);
+            }
+
             // Additional animations for elements
             const animatedElements = document.querySelectorAll('.rotate, .bounce, .pulse, .fade-in, .slide-in-left, .slide-in-right, .zoom-in, .floating, .glow');
             
@@ -1520,6 +1769,12 @@
                 element.style.visibility = 'hidden';
                 element.style.animationPlayState = 'paused';
                 animationObserver.observe(element);
+            });
+
+            // Terminal typewriter effect
+            const terminalLines = document.querySelectorAll('.terminal-line');
+            terminalLines.forEach((line, index) => {
+                line.style.animationDelay = (index * 2) + 's';
             });
         });
     </script>
