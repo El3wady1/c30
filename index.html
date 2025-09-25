@@ -1013,6 +1013,125 @@
             z-index: -1;
             opacity: 0.03;
         }
+
+        /* أنيميشنات إضافية */
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid var(--accent-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent-color) }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .rotate {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .zoom-in {
+            animation: zoomIn 1s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 15px var(--accent-color); }
+            to { box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color); }
+        }
+
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+        }
     </style>
 </head>
 <body>
@@ -1044,11 +1163,11 @@
     <main>
         <section class="hero" id="hero">
             <div class="container hero-content animate-on-load">
-                <h1>نقدم حلول برمجية متطورة لنمو <span>أعمالك</span></h1>
-                <p>نحن في E-Tech، نجمع بين الإبداع والتكنولوجيا لإنشاء تجارب رقمية لا تُنسى. من تطبيقات الويب إلى حلول الهاتف المحمول، نصمم المستقبل اليوم.</p>
+                <h1 class="typing-animation">نقدم حلول برمجية متطورة لنمو <span>أعمالك</span></h1>
+                <p class="fade-in">نحن في E-Tech، نجمع بين الإبداع والتكنولوجيا لإنشاء تجارب رقمية لا تُنسى. من تطبيقات الويب إلى حلول الهاتف المحمول، نصمم المستقبل اليوم.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn">اكتشف خدماتنا</a>
-                    <a href="#contact" class="btn btn-outline">تحدث معنا</a>
+                    <a href="#services" class="btn bounce">اكتشف خدماتنا</a>
+                    <a href="#contact" class="btn btn-outline pulse">تحدث معنا</a>
                 </div>
             </div>
         </section>
@@ -1060,23 +1179,23 @@
                     <p>نقدم مجموعة واسعة من الخدمات البرمجية لتلبية احتياجات عملك وتحويل أفكارك إلى واقع رقمي ملموس.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card animate-element">
-                        <i class="fas fa-desktop service-icon"></i>
+                    <div class="service-card animate-element slide-in-left">
+                        <i class="fas fa-desktop service-icon rotate"></i>
                         <h3>تطوير الويب</h3>
                         <p>بناء مواقع وتطبيقات ويب احترافية ومتجاوبة باستخدام أحدث التقنيات.</p>
                     </div>
-                    <div class="service-card animate-element">
-                        <i class="fas fa-mobile-alt service-icon"></i>
+                    <div class="service-card animate-element zoom-in">
+                        <i class="fas fa-mobile-alt service-icon floating"></i>
                         <h3>تطبيقات الموبايل</h3>
                         <p>تصميم وتطوير تطبيقات أندرويد و iOS عالية الأداء وسهلة الاستخدام.</p>
                     </div>
-                    <div class="service-card animate-element">
-                        <i class="fas fa-server service-icon"></i>
+                    <div class="service-card animate-element zoom-in">
+                        <i class="fas fa-server service-icon glow"></i>
                         <h3>حلول السحابة</h3>
                         <p>استضافة آمنة وموثوقة، وإدارة الخوادم، وخدمات الحوسبة السحابية.</p>
                     </div>
-                    <div class="service-card animate-element">
-                        <i class="fas fa-chart-line service-icon"></i>
+                    <div class="service-card animate-element slide-in-right">
+                        <i class="fas fa-chart-line service-icon pulse"></i>
                         <h3>تحليل البيانات</h3>
                         <p>تحويل البيانات الضخمة إلى رؤى قيمة تدعم قرارات عملك الاستراتيجية.</p>
                     </div>
@@ -1091,8 +1210,8 @@
                     <p>اختر الباقة التي تناسب حجم مشروعك وميزانيتك، وابدأ رحلتك نحو النجاح الرقمي.</p>
                 </div>
                 <div class="offers-grid">
-                    <div class="offer-card animate-element">
-                        <div class="offer-header">
+                    <div class="offer-card animate-element floating">
+                        <div class="offer-header shimmer">
                             <h3>الباقة الأساسية</h3>
                             <div class="offer-price">500$</div>
                             <div class="offer-period">مرة واحدة</div>
@@ -1107,8 +1226,8 @@
                             <a href="#" class="btn">اشترك الآن</a>
                         </div>
                     </div>
-                    <div class="offer-card animate-element">
-                        <div class="offer-header">
+                    <div class="offer-card animate-element floating" style="animation-delay: 0.2s;">
+                        <div class="offer-header shimmer">
                             <h3>الباقة الاحترافية</h3>
                             <div class="offer-price">1200$</div>
                             <div class="offer-period">مرة واحدة</div>
@@ -1123,8 +1242,8 @@
                             <a href="#" class="btn">اشترك الآن</a>
                         </div>
                     </div>
-                    <div class="offer-card animate-element">
-                        <div class="offer-header">
+                    <div class="offer-card animate-element floating" style="animation-delay: 0.4s;">
+                        <div class="offer-header shimmer">
                             <h3>الباقة المتقدمة</h3>
                             <div class="offer-price">2500$+</div>
                             <div class="offer-period">حسب المشروع</div>
@@ -1153,25 +1272,25 @@
                     <div class="contact-info animate-element">
                         <h3>معلومات الاتصال</h3>
                         <div class="contact-details">
-                            <div class="contact-item animate-element">
+                            <div class="contact-item animate-element bounce">
                                 <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
                                 <div class="contact-text">
                                     <h4>الموقع</h4>
-                                    <p>شارع البرمجة، مبنى التقنية، مدينة الابتكار</p>
+                                    <p>المدينة المنورة، السعودية</p>
                                 </div>
                             </div>
-                            <div class="contact-item animate-element">
+                            <div class="contact-item animate-element bounce" style="animation-delay: 0.1s;">
                                 <span class="contact-icon"><i class="fas fa-envelope"></i></span>
                                 <div class="contact-text">
                                     <h4>البريد الإلكتروني</h4>
-                                    <p><a href="mailto:info@etech.com">info@etech.com</a></p>
+                                    <p><a href="mailto:niroelawady@gmail.com">niroelawady@gmail.com</a></p>
                                 </div>
                             </div>
-                            <div class="contact-item animate-element">
+                            <div class="contact-item animate-element bounce" style="animation-delay: 0.2s;">
                                 <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
                                 <div class="contact-text">
                                     <h4>الهاتف</h4>
-                                    <p><a href="tel:+966551234567">+966 55 123 4567</a></p>
+                                    <p><a href="tel:+2001094649929">+2001094649929</a></p>
                                 </div>
                             </div>
                         </div>
@@ -1213,7 +1332,7 @@
         </div>
     </footer>
     
-    <a href="https://wa.me/966551234567" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/2001094649929" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1382,6 +1501,26 @@
             }
             
             setInterval(drawMatrix, 35);
+
+            // Additional animations for elements
+            const animatedElements = document.querySelectorAll('.rotate, .bounce, .pulse, .fade-in, .slide-in-left, .slide-in-right, .zoom-in, .floating, .glow');
+            
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.visibility = 'visible';
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedElements.forEach(element => {
+                element.style.visibility = 'hidden';
+                element.style.animationPlayState = 'paused';
+                animationObserver.observe(element);
+            });
         });
     </script>
 </body>
