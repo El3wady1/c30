@@ -3,10 +3,13 @@
   "short_name": "E-Tech",
   "description": "شركة متخصصة في تطوير مواقع الويب، تطبيقات الموبايل، حلول السحابة وتحليل البيانات",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0a0a16",
   "theme_color": "#00ffea",
   "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
