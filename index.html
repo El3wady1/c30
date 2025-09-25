@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Tech | شركة برمجة احترافية - تطوير مواقع وتطبيقات</title>
     <meta name="description" content="E-Tech شركة برمجة متخصصة في تطوير مواقع الويب، تطبيقات الموبايل، حلول السحابة وتحليل البيانات. نقدم حلولاً برمجية متطورة لنمو أعمالك.">
-    <meta name="keywords" content="برمجة, تطوير مواقع, تطبيقات موبايل, سحابة, تحليل بيانات, شركة برمجة, E-Tech, برمجة احترافية">
+    <meta name="keywords" content="برمجة, تطوير مواقع, تطبيقات موبايل, سحابة, تحليل بيانات, شركة برمجة, E-Tech, برمجة احترافية, موقع الكتروني, تطبيق جوال">
     <meta name="author" content="E-Tech">
     <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
     <meta property="og:title" content="E-Tech | شركة برمجة احترافية">
     <meta property="og:description" content="E-Tech شركة برمجة متخصصة في تطوير مواقع الويب، تطبيقات الموبايل، حلول السحابة وتحليل البيانات.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.etech.com">
     <meta property="og:image" content="https://www.etech.com/images/og-image.jpg">
+    <meta property="og:locale" content="ar_SA">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="E-Tech | شركة برمجة احترافية">
     <meta name="twitter:description" content="E-Tech شركة برمجة متخصصة في تطوير مواقع الويب، تطبيقات الموبايل، حلول السحابة وتحليل البيانات.">
     <meta name="twitter:image" content="https://www.etech.com/images/twitter-image.jpg">
     
-    <!-- Structured Data (Schema.org) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,7 +41,9 @@
         "@type": "ContactPoint",
         "telephone": "+2001094649929",
         "contactType": "خدمة العملاء",
-        "email": "niroelawady@gmail.com"
+        "email": "niroelawady@gmail.com",
+        "areaServed": "SA",
+        "availableLanguage": ["Arabic", "English"]
       },
       "sameAs": [
         "https://www.facebook.com/etech",
@@ -52,6 +59,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" as="style">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -110,6 +122,37 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+        }
+
+        /* Breadcrumb styles */
+        .breadcrumb {
+            background: rgba(10, 10, 22, 0.8);
+            padding: 10px 0;
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+        }
+
+        .breadcrumb ol {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .breadcrumb li {
+            margin-left: 10px;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
         }
 
         /* أنماط الشريط العلوي */
@@ -225,7 +268,7 @@
 
         /* أنماط قسم البطل */
         .hero {
-            padding: 160px 0 100px;
+            padding: 200px 0 100px;
             text-align: center;
             position: relative;
             min-height: 100vh;
@@ -954,6 +997,15 @@
         
         /* أنماط الاستجابة للهواتف */
         @media (max-width: 768px) {
+            .breadcrumb {
+                top: 70px;
+                padding: 8px 0;
+            }
+            
+            .breadcrumb a {
+                font-size: 0.8rem;
+            }
+            
             .header-content {
                 flex-direction: row;
                 justify-content: space-between;
@@ -997,7 +1049,7 @@
                 z-index: 1001;
             }
 
-            .hero { padding: 130px 0 70px; min-height: 90vh; }
+            .hero { padding: 170px 0 70px; min-height: 90vh; }
             .hero h1 { font-size: 2.2rem; margin-bottom: 15px; }
             .hero p { font-size: 1rem; }
 
@@ -1385,6 +1437,20 @@
     </style>
 </head>
 <body>
+    <!-- Breadcrumb for SEO -->
+    <nav aria-label="breadcrumb" class="breadcrumb">
+        <div class="container">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="https://www.etech.com">
+                        <span itemprop="name">الرئيسية</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
     <div class="cyber-grid"></div>
     <div class="binary-rain" id="binaryRain"></div>
     <div class="morphing-shapes" id="morphingShapes"></div>
@@ -1599,11 +1665,22 @@
         </div>
     </footer>
     
-    <a href="https://wa.me/2001094649929" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/2001094649929" class="whatsapp-float" target="_blank" aria-label="تواصل معنا عبر واتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
+        // Service Worker للتطبيق التقدمي (PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mainNav = document.getElementById('main-nav');
