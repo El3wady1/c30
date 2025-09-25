@@ -629,6 +629,10 @@
         
         .contact-info {
             padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
         }
         
         .contact-info h3 {
@@ -654,6 +658,7 @@
             border-radius: 8px;
             border: 1px solid rgba(155, 93, 229, 0.1);
             transition: all 0.3s;
+            justify-content: center;
         }
         
         .contact-item:hover {
@@ -699,54 +704,6 @@
         
         .contact-text a:hover {
             color: var(--light);
-        }
-        
-        .contact-form {
-            padding: 25px 20px;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border: 1px solid rgba(155, 93, 229, 0.1);
-        }
-        
-        .contact-form h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            color: var(--light);
-            font-weight: 600;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(155, 93, 229, 0.2);
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: rgba(155, 93, 229, 0.03);
-            color: var(--light);
-        }
-        
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(155, 93, 229, 0.05);
-            box-shadow: 0 0 0 2px rgba(155, 93, 229, 0.1);
-        }
-        
-        .contact-form textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: var(--gray);
         }
         
         /* أنماط التذييل */
@@ -820,6 +777,7 @@
             gap: 12px;
             margin-top: 20px;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .social-links a {
@@ -1010,11 +968,11 @@
                 gap: 30px;
             }
             
-            .contact-info, .contact-form {
+            .contact-info {
                 padding: 20px 15px;
             }
             
-            .contact-info h3, .contact-form h3 {
+            .contact-info h3 {
                 font-size: 1.5rem;
             }
             
@@ -1065,7 +1023,7 @@
         
         @media (min-width: 769px) and (max-width: 992px) {
             .contact-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             
             .services-grid {
@@ -1079,7 +1037,7 @@
         
         @media (min-width: 993px) {
             .contact-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             
             .services-grid {
@@ -1290,16 +1248,6 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="contact-form fade-in">
-                    <h3>أرسل رسالة</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="الاسم الكامل" required>
-                        <input type="email" placeholder="البريد الإلكتروني" required>
-                        <input type="text" placeholder="الموضوع" required>
-                        <textarea placeholder="الرسالة" required></textarea>
-                        <button type="submit" class="btn btn-filled">إرسال الرسالة</button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -1455,17 +1403,6 @@
             
             // تفعيل عند التمرير
             window.addEventListener('scroll', fadeInOnScroll);
-            
-            // إرسال نموذج الاتصال
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // هنا يمكنك إضافة كود إرسال النموذج إلى الخادم
-                alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
-                contactForm.reset();
-            });
             
             // تحديث الرابط النشط في القائمة
             const sections = document.querySelectorAll('section');
