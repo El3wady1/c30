@@ -36,10 +36,14 @@
         }
         
         body {
-            background-color: #f8faff;
-            color: #333;
+            background-color: #0a0f2a;
+            color: #e0e0e0;
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(28, 58, 122, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(41, 98, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(66, 165, 245, 0.05) 0%, transparent 30%);
         }
         
         .container {
@@ -51,8 +55,8 @@
         
         /* أنماط الشريط العلوي */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            color: var(--primary);
+            background-color: rgba(10, 15, 42, 0.95);
+            color: var(--light);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -60,14 +64,13 @@
             z-index: 1000;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(26, 35, 126, 0.1);
-            border-bottom: 1px solid rgba(21, 101, 192, 0.1);
+            box-shadow: 0 5px 20px rgba(3, 7, 30, 0.7);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.1);
         }
         
         header.scrolled {
             padding: 12px 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(26, 35, 126, 0.15);
+            background-color: rgba(10, 15, 42, 0.98);
         }
         
         .header-content {
@@ -80,19 +83,45 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
             text-decoration: none;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             z-index: 1001;
+            text-shadow: 0 0 10px rgba(66, 165, 245, 0.5);
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.5s ease;
+        }
+        
+        .logo:hover::after {
+            width: 100%;
         }
         
         .logo i {
             margin-left: 10px;
             font-size: 1.6rem;
-            color: var(--secondary);
+            color: var(--accent);
+            animation: codeGlow 2s infinite alternate;
+        }
+        
+        @keyframes codeGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(66, 165, 245, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(66, 165, 245, 0.8), 0 0 20px rgba(66, 165, 245, 0.6);
+            }
         }
         
         nav ul {
@@ -106,7 +135,7 @@
         }
         
         nav ul li a {
-            color: var(--primary);
+            color: var(--light);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
@@ -115,37 +144,38 @@
             font-size: 1rem;
         }
         
-        nav ul li a::after {
-            content: '';
+        nav ul li a::before {
+            content: '▹';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            right: 0;
-            background: var(--gradient-1);
-            transition: width 0.3s;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            opacity: 0;
+            transition: all 0.3s;
         }
         
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
-            width: 100%;
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            opacity: 1;
+            left: -15px;
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         .mobile-menu {
             display: none;
             font-size: 1.6rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--light);
             transition: all 0.3s;
             z-index: 1001;
         }
         
         .mobile-menu:hover {
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         /* زر الواتساب العائم */
@@ -189,8 +219,8 @@
         
         /* أنماط قسم البطل */
         .hero {
-            background: linear-gradient(135deg, #f8faff 0%, #e3f2fd 100%);
-            color: var(--primary);
+            background: linear-gradient(135deg, #0a0f2a 0%, #1a237e 100%);
+            color: white;
             padding: 160px 0 100px;
             text-align: center;
             position: relative;
@@ -208,9 +238,39 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(66, 165, 245, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(21, 101, 192, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(66, 165, 245, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(21, 101, 192, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(92, 107, 192, 0.1) 0%, transparent 50%);
             animation: float 6s ease-in-out infinite;
+        }
+        
+        .code-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .code-line {
+            position: absolute;
+            font-family: monospace;
+            color: var(--accent);
+            font-size: 14px;
+            white-space: nowrap;
+            animation: codeFlow 20s linear infinite;
+        }
+        
+        @keyframes codeFlow {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
         
         .floating-elements {
@@ -256,13 +316,18 @@
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
             line-height: 1.2;
             font-weight: 700;
-            color: var(--primary);
+            background: linear-gradient(90deg, #42a5f5, #5c6bc0, #42a5f5);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite alternate;
             position: relative;
             display: inline-block;
+            text-shadow: 0 0 10px rgba(66, 165, 245, 0.3);
         }
         
         .hero h1::after {
@@ -272,7 +337,7 @@
             height: 3px;
             bottom: -8px;
             right: 0;
-            background: var(--gradient-1);
+            background: var(--gradient-2);
             border-radius: 2px;
             animation: widthPulse 3s infinite;
         }
@@ -287,10 +352,10 @@
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 100%;
             margin: 0 auto 40px;
-            color: var(--gray);
+            color: #b0bec5;
             line-height: 1.7;
             padding: 0 10px;
         }
@@ -298,18 +363,23 @@
         .btn {
             display: inline-block;
             background: transparent;
-            color: var(--secondary);
+            color: var(--accent);
             padding: 12px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.4s;
-            border: 2px solid var(--secondary);
+            border: 2px solid transparent;
             cursor: pointer;
             position: relative;
             overflow: hidden;
             font-size: 1rem;
             z-index: 1;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-image: var(--gradient-1);
+            border-image-slice: 1;
             margin: 5px;
         }
         
@@ -331,16 +401,15 @@
         }
         
         .btn:hover {
-            box-shadow: 0 5px 15px rgba(21, 101, 192, 0.3);
+            box-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
             transform: translateY(-3px);
-            color: white;
-            border-color: transparent;
+            -webkit-text-fill-color: white;
         }
         
         .btn-filled {
             background: var(--gradient-1);
-            color: white;
-            border: 2px solid transparent;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: white;
         }
         
         .btn-filled::before {
@@ -350,7 +419,7 @@
         /* أنماط قسم الخدمات */
         .services {
             padding: 80px 0;
-            background-color: white;
+            background-color: #0d122f;
             position: relative;
         }
         
@@ -361,7 +430,7 @@
             right: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
         
         .section-title {
@@ -370,12 +439,15 @@
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
+            font-size: 2.5rem;
+            color: var(--light);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
             font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .section-title h2::after {
@@ -391,7 +463,7 @@
         }
         
         .section-title p {
-            color: var(--gray);
+            color: #b0bec5;
             max-width: 100%;
             margin: 25px auto 0;
             font-size: 1.1rem;
@@ -406,16 +478,16 @@
         }
         
         .service-card {
-            background-color: var(--card-bg);
+            background-color: rgba(26, 35, 126, 0.2);
             padding: 30px 20px;
             border-radius: 12px;
             text-align: center;
             transition: all 0.5s ease;
-            border: 1px solid rgba(21, 101, 192, 0.1);
+            border: 1px solid rgba(66, 165, 245, 0.1);
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
         }
         
         .service-card::before {
@@ -432,38 +504,50 @@
         }
         
         .service-card:hover::before {
-            opacity: 0.05;
+            opacity: 0.1;
         }
         
         .service-card:hover {
             transform: translateY(-8px) scale(1.02);
-            border-color: rgba(21, 101, 192, 0.3);
-            box-shadow: 0 15px 30px rgba(21, 101, 192, 0.1);
+            border-color: rgba(66, 165, 245, 0.3);
+            box-shadow: 0 10px 20px rgba(3, 7, 30, 0.7);
         }
         
         .service-icon {
             font-size: 2.8rem;
-            color: var(--secondary);
+            color: var(--accent);
             margin-bottom: 20px;
             display: inline-block;
             transition: all 0.5s;
             position: relative;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .service-card:hover .service-icon {
             transform: scale(1.15) rotate(5deg);
-            color: var(--primary);
+            animation: iconPulse 1s infinite alternate;
+        }
+        
+        @keyframes iconPulse {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(66, 165, 245, 0.5));
+            }
+            100% {
+                filter: drop-shadow(0 0 12px rgba(66, 165, 245, 0.7));
+            }
         }
         
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--light);
             font-weight: 600;
         }
         
         .service-card p {
-            color: var(--gray);
+            color: #b0bec5;
             line-height: 1.7;
             font-size: 1rem;
         }
@@ -471,7 +555,7 @@
         /* أنماط قسم العروض */
         .offers {
             padding: 80px 0;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f8faff 100%);
+            background: linear-gradient(135deg, #0d122f 0%, #1a237e 100%);
             position: relative;
         }
         
@@ -482,7 +566,7 @@
             right: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
         
         .offers-grid {
@@ -492,19 +576,20 @@
         }
         
         .offer-card {
-            background-color: white;
+            background-color: rgba(26, 35, 126, 0.2);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.5s ease;
-            border: 1px solid rgba(21, 101, 192, 0.1);
+            border: 1px solid rgba(66, 165, 245, 0.1);
             position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(3, 7, 30, 0.5);
+            backdrop-filter: blur(10px);
         }
         
         .offer-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(21, 101, 192, 0.15);
-            border-color: rgba(21, 101, 192, 0.3);
+            box-shadow: 0 15px 30px rgba(66, 165, 245, 0.3);
+            border-color: rgba(66, 165, 245, 0.3);
         }
         
         .offer-header {
@@ -541,7 +626,7 @@
         }
         
         .offer-period {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1rem;
         }
         
@@ -556,10 +641,10 @@
         
         .offer-features ul li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(21, 101, 192, 0.1);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.1);
             display: flex;
             align-items: center;
-            color: var(--primary);
+            color: var(--light);
         }
         
         .offer-features ul li:last-child {
@@ -568,7 +653,7 @@
         
         .offer-features ul li i {
             margin-left: 10px;
-            color: var(--secondary);
+            color: var(--accent);
             font-size: 1.1rem;
         }
         
@@ -583,7 +668,7 @@
             top: 20px;
             left: -30px;
             background: var(--gradient-2);
-            color: white;
+            color: var(--dark);
             padding: 5px 30px;
             transform: rotate(-45deg);
             font-weight: 700;
@@ -594,7 +679,7 @@
         /* أنماط قسم الاتصال */
         .contact {
             padding: 80px 0;
-            background: white;
+            background: linear-gradient(135deg, #0d122f 0%, #1a237e 100%);
             position: relative;
         }
         
@@ -605,7 +690,7 @@
             right: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
         
         .contact-content {
@@ -625,8 +710,11 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: var(--primary);
+            color: var(--light);
             font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .contact-details {
@@ -638,62 +726,65 @@
             align-items: center;
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(21, 101, 192, 0.05);
+            background: rgba(66, 165, 245, 0.05);
             border-radius: 8px;
-            border: 1px solid rgba(21, 101, 192, 0.1);
+            border: 1px solid rgba(66, 165, 245, 0.1);
             transition: all 0.3s;
             justify-content: center;
         }
         
         .contact-item:hover {
             transform: translateX(5px);
-            border-color: rgba(21, 101, 192, 0.3);
-            box-shadow: 0 5px 12px rgba(21, 101, 192, 0.1);
+            border-color: rgba(66, 165, 245, 0.3);
+            box-shadow: 0 5px 12px rgba(3, 7, 30, 0.5);
         }
         
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: rgba(21, 101, 192, 0.1);
+            background: rgba(66, 165, 245, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 15px;
-            color: var(--secondary);
+            color: var(--accent);
             font-size: 1.3rem;
             flex-shrink: 0;
-            border: 1px solid rgba(21, 101, 192, 0.2);
+            border: 1px solid rgba(66, 165, 245, 0.2);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .contact-text h4 {
             margin-bottom: 5px;
-            color: var(--primary);
+            color: var(--light);
             font-size: 1.1rem;
         }
         
         .contact-text p {
-            color: var(--gray);
+            color: #b0bec5;
             font-size: 1rem;
         }
         
         .contact-text a {
-            color: var(--secondary);
+            color: var(--accent);
             text-decoration: none;
             transition: all 0.3s;
         }
         
         .contact-text a:hover {
-            color: var(--primary);
+            color: var(--light);
         }
         
         /* أنماط التذييل */
         footer {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, #0a0f2a 0%, #1a237e 100%);
             color: white;
             padding: 60px 0 30px;
             position: relative;
-            border-top: 1px solid rgba(21, 101, 192, 0.1);
+            border-top: 1px solid rgba(66, 165, 245, 0.1);
         }
         
         .footer-content {
@@ -709,7 +800,10 @@
             position: relative;
             padding-bottom: 10px;
             font-weight: 700;
-            color: white;
+            color: var(--light);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .footer-column h3::after {
@@ -717,13 +811,13 @@
             position: absolute;
             width: 40px;
             height: 2px;
-            background: var(--gradient-2);
+            background: var(--gradient-1);
             bottom: 0;
             right: 0;
         }
         
         .footer-column p {
-            color: rgba(255, 255, 255, 0.8);
+            color: #b0bec5;
             line-height: 1.7;
             margin-bottom: 20px;
             font-size: 1rem;
@@ -738,7 +832,7 @@
         }
         
         .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
+            color: #b0bec5;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
@@ -761,19 +855,19 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(66, 165, 245, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--light);
             text-decoration: none;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(66, 165, 245, 0.2);
         }
         
         .social-links a:hover {
-            background: var(--accent);
+            background: var(--gradient-1);
             color: var(--primary);
             transform: translateY(-3px);
             box-shadow: 0 5px 12px rgba(66, 165, 245, 0.3);
@@ -782,8 +876,8 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(66, 165, 245, 0.1);
+            color: #b0bec5;
             font-size: 0.9rem;
         }
         
@@ -811,6 +905,15 @@
             }
         }
         
+        @keyframes textShine {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        
         /* تأثيرات التمرير */
         .fade-in {
             opacity: 0;
@@ -821,6 +924,56 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* تأثير كتابة النص */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--accent);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent) }
+        }
+        
+        /* تأثيرات البرمجة */
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.05;
+        }
+        
+        .matrix-code {
+            position: absolute;
+            font-family: monospace;
+            color: var(--accent);
+            font-size: 14px;
+            animation: matrixFall linear infinite;
+        }
+        
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
         
         /* أنماط الاستجابة للهواتف */
@@ -845,12 +998,12 @@
                 right: -100%;
                 width: 70%;
                 height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
+                background: rgba(10, 15, 42, 0.98);
                 backdrop-filter: blur(10px);
                 padding: 80px 30px 30px;
                 transition: all 0.5s ease;
                 z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
             }
             
             nav ul.show {
@@ -865,7 +1018,6 @@
                 font-size: 1.2rem;
                 padding: 10px 0;
                 display: block;
-                color: var(--primary);
             }
             
             .mobile-menu {
@@ -881,7 +1033,7 @@
                 top: 20px;
                 left: 20px;
                 font-size: 1.8rem;
-                color: var(--primary);
+                color: var(--light);
                 cursor: pointer;
                 z-index: 1001;
             }
@@ -1059,6 +1211,7 @@
 
     <!-- قسم البطل -->
     <section class="hero" id="home">
+        <div class="code-background" id="codeBackground"></div>
         <div class="floating-elements" id="floatingElements"></div>
         <div class="container">
             <div class="hero-content">
@@ -1074,6 +1227,7 @@
 
     <!-- قسم الخدمات -->
     <section class="services" id="services">
+        <div class="matrix-bg" id="matrixBg"></div>
         <div class="container">
             <div class="section-title">
                 <h2>خدماتنا المتكاملة</h2>
@@ -1310,6 +1464,73 @@
                 }
             }
             
+            // إنشاء تأثير المصفوفة (Matrix) في قسم الخدمات
+            const matrixBg = document.getElementById('matrixBg');
+            if (window.innerWidth > 768) {
+                const codeChars = '01abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                
+                for (let i = 0; i < 50; i++) {
+                    const code = document.createElement('div');
+                    code.classList.add('matrix-code');
+                    
+                    // إعدادات عشوائية
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 10;
+                    const duration = Math.random() * 10 + 10;
+                    const fontSize = Math.random() * 6 + 10;
+                    
+                    // إنشاء نص عشوائي
+                    let text = '';
+                    const length = Math.floor(Math.random() * 20) + 10;
+                    for (let j = 0; j < length; j++) {
+                        text += codeChars.charAt(Math.floor(Math.random() * codeChars.length));
+                    }
+                    
+                    code.textContent = text;
+                    code.style.left = `${left}%`;
+                    code.style.animationDelay = `${delay}s`;
+                    code.style.animationDuration = `${duration}s`;
+                    code.style.fontSize = `${fontSize}px`;
+                    
+                    matrixBg.appendChild(code);
+                }
+            }
+            
+            // إنشاء تأثير الكود في قسم البطل
+            const codeBackground = document.getElementById('codeBackground');
+            if (window.innerWidth > 768) {
+                const codeLines = [
+                    'function createSolution() {',
+                    '  const innovation = new Innovation();',
+                    '  const technology = new Technology();',
+                    '  return innovation.merge(technology);',
+                    '}',
+                    'const project = createSolution();',
+                    'project.implement();',
+                    'class DigitalTransformation {',
+                    '  constructor() {',
+                    '    this.vision = "future";',
+                    '    this.technology = "cutting-edge";',
+                    '  }',
+                    '  transform() {',
+                    '    return "success";',
+                    '  }',
+                    '}',
+                    '// نحن نبني المستقبل الرقمي',
+                    'const future = new DigitalTransformation();',
+                    'future.transform();'
+                ];
+                
+                codeLines.forEach((line, index) => {
+                    const codeLine = document.createElement('div');
+                    codeLine.classList.add('code-line');
+                    codeLine.textContent = line;
+                    codeLine.style.top = `${(index + 1) * 30}px`;
+                    codeLine.style.animationDelay = `${index * 2}s`;
+                    codeBackground.appendChild(codeLine);
+                });
+            }
+            
             // تغيير لون الهيدر عند التمرير
             const header = document.getElementById('header');
             
@@ -1419,6 +1640,17 @@
                     document.body.style.overflow = 'auto';
                 }
             });
+            
+            // تأثير كتابة النص
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            heroTitle.classList.add('typewriter');
+            
+            setTimeout(() => {
+                heroTitle.textContent = originalText;
+                heroTitle.classList.remove('typewriter');
+            }, 4000);
         });
     </script>
 </body>
