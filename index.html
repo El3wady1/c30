@@ -124,35 +124,9 @@
             padding: 0 15px;
         }
 
-        /* Breadcrumb styles */
+        /* Breadcrumb styles - مخفي الآن */
         .breadcrumb {
-            background: rgba(10, 10, 22, 0.8);
-            padding: 10px 0;
-            position: fixed;
-            top: 80px;
-            width: 100%;
-            z-index: 999;
-            backdrop-filter: blur(10px);
-        }
-
-        .breadcrumb ol {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .breadcrumb li {
-            margin-left: 10px;
-        }
-
-        .breadcrumb a {
-            color: var(--secondary-text);
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--accent-color);
+            display: none;
         }
 
         /* أنماط الشريط العلوي */
@@ -268,7 +242,7 @@
 
         /* أنماط قسم البطل */
         .hero {
-            padding: 200px 0 100px;
+            padding: 150px 0 100px; /* تم تعديل padding-top ليكون 150px بدلاً من 200px */
             text-align: center;
             position: relative;
             min-height: 100vh;
@@ -1012,7 +986,7 @@
         
         @media (max-width: 992px) {
             .hero {
-                padding: 180px 0 80px;
+                padding: 130px 0 80px; /* تم تعديل padding-top ليكون 130px بدلاً من 180px */
             }
             
             .hero h1 {
@@ -1042,15 +1016,6 @@
         }
         
         @media (max-width: 768px) {
-            .breadcrumb {
-                top: 70px;
-                padding: 8px 0;
-            }
-            
-            .breadcrumb a {
-                font-size: 0.8rem;
-            }
-            
             .header-content {
                 flex-direction: row;
                 justify-content: space-between;
@@ -1105,7 +1070,7 @@
             }
 
             .hero { 
-                padding: 150px 0 60px; 
+                padding: 110px 0 60px; /* تم تعديل padding-top ليكون 110px بدلاً من 150px */
                 min-height: 90vh; 
             }
             .hero h1 { 
@@ -1182,7 +1147,7 @@
         
         @media (max-width: 576px) {
             .hero {
-                padding: 130px 0 50px;
+                padding: 100px 0 50px; /* تم تعديل padding-top ليكون 100px بدلاً من 130px */
             }
             
             .hero h1 {
@@ -1921,20 +1886,6 @@
     </style>
 </head>
 <body>
-    <!-- Breadcrumb for SEO -->
-    <nav aria-label="breadcrumb" class="breadcrumb">
-        <div class="container">
-            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="https://www.etech.com">
-                        <span itemprop="name">الرئيسية</span>
-                    </a>
-                    <meta itemprop="position" content="1" />
-                </li>
-            </ol>
-        </div>
-    </nav>
-
     <!-- Loading Bar -->
     <div class="loading-bar" id="loadingBar"></div>
     <div class="scroll-progress">
